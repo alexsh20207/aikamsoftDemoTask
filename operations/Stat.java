@@ -2,6 +2,7 @@ package rus.aikamsoft.demotask.shtang.operations;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
+import com.google.gson.JsonSyntaxException;
 import rus.aikamsoft.demotask.shtang.entities.Customer;
 import rus.aikamsoft.demotask.shtang.entities.CustomerInfo;
 import rus.aikamsoft.demotask.shtang.db.DBHandler;
@@ -25,7 +26,7 @@ public class Stat extends Operation {
         totalExpense = 0;
         customerInfos = new ArrayList<>();
     }
-    public String execute(JsonElement jsonElement) throws ParseException, SQLException, NullPointerException {
+    public String execute(JsonElement jsonElement) throws JsonSyntaxException, ParseException, SQLException, NullPointerException {
         setJsonInput(jsonElement);
         inputStat = new Gson().fromJson(jsonInput, InputStat.class);
         customers = DBHandler.getCustomers(inputStat.getSQLQueryCustomers());

@@ -1,6 +1,7 @@
 package rus.aikamsoft.demotask.shtang.operations;
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
+import com.google.gson.JsonSyntaxException;
 import rus.aikamsoft.demotask.shtang.entities.Customer;
 import rus.aikamsoft.demotask.shtang.db.DBHandler;
 import rus.aikamsoft.demotask.shtang.criterias.Criteria;
@@ -20,7 +21,7 @@ public class Searcher extends Operation {
         outputSearch = new OutputSearch();
     }
 
-    public String execute(JsonElement jsonElement) throws ClassNotFoundException, IOException, SQLException, NullPointerException {
+    public String execute(JsonElement jsonElement) throws JsonSyntaxException, ClassNotFoundException, IOException, SQLException, NullPointerException {
         setJsonInput(jsonElement);
         inputSearch.loadCriterias(jsonInput);
         for (Criteria criterion: inputSearch.getCriterias()) {

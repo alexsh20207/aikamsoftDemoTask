@@ -2,6 +2,7 @@ package rus.aikamsoft.demotask.shtang;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
+import com.google.gson.JsonSyntaxException;
 import rus.aikamsoft.demotask.shtang.db.DBHandler;
 import rus.aikamsoft.demotask.shtang.fileHandlers.Reader;
 import rus.aikamsoft.demotask.shtang.fileHandlers.Writer;
@@ -40,7 +41,8 @@ public class HandlerOperation {
             writer.write(output);
         } catch (ClassNotFoundException | ParseException | SQLException
                  | IOException | InvocationTargetException | NoSuchMethodException
-                 | InstantiationException | IllegalAccessException | NullPointerException e) {
+                 | InstantiationException | IllegalAccessException | NullPointerException
+                 | JsonSyntaxException e) {
             handleErr(e);
         }
     }
