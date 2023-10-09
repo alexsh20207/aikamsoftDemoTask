@@ -48,6 +48,6 @@ public class HandlerOperation {
     }
 
     public void handleErr(Exception e) {
-        writer.write(new Gson().toJson(new OutputErr(e.toString())));
+        writer.write(new Gson().toJson(new OutputErr(e.getLocalizedMessage())));
     }
 }
